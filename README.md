@@ -47,15 +47,28 @@ Directory structure:
 1. Clone this repository from GitHub
 2. Create a repository on GitLab
 3. Set your local repository's remote to point to your GitLab
-4. Push to your GitLab
+4. Make your changes locally according to the tasks below
+5. Push to your GitLab
 
 For the submission, send us the link to your repository in GitLab.
+
+## Task Overview
+
+| Task | Scoring |
+| --- | --- | --- |
+| Containerisation | 40% |
+| Pipeline | 30% |
+| Environment | 20% |
+| Documentation | 10% |
+| Versioning (Bonus) | 20% |
 
 
 - - -
 
 
 # Containerisation
+
+> **REMINDER**: this will form 40% of your assessment
 
 ## Context
 
@@ -80,47 +93,9 @@ You can test if this works by running:
 - - -
 
 
-# Environment
-
-## Context
-
-Developers have been running this manually forever in an isolated setting, let's put a use case to it and demonstrate how it maybe used downstream the value chain!
-
-## Task
-
-Create a `docker-compose.yml` in the `./deployments` to demonstrate two `pinger` services that ping each other
-
-## Deliverable
-
-Running `docker-compose up -f ./deployments/docker-compose.yml` should result in a network of Docker containers that are pinging each other. Exposing the logs should reveal them pinging each other at their different ports.
-
-You can test if this works by running:
-
-- `make testenv`
-
-
-- - -
-
-
-# Documentation
-
-## Context
-
-Now that you've added some DevOps tooling to this project, it's time to document it!
-
-## Task
-
-Write a README.md in the `./docs` directory that contains instructions on how to operate this repository. The README should be as concise as possible while enabling anyone new to this project to get started as quickly as possible.
-
-## Deliverable
-
-README.md in the `./docs` directory.
-
-
-- - -
-
-
 # Pipeline
+
+> **REMINDER**: this will form 30% of your assessment
 
 ## Context
 
@@ -149,9 +124,55 @@ Also add a section to your README.md in the [Documentation](#documentation) on c
 - - -
 
 
-# Bonus - Versioning
+# Environment
 
-> **NOTE**: This requires that the [Pipeline Section](#pipeline) is complete.
+> **REMINDER**: this will form 20% of your assessment
+
+## Context
+
+Developers have been running this manually forever in an isolated setting, let's put a use case to it and demonstrate how it maybe used downstream the value chain!
+
+## Task
+
+Create a `docker-compose.yml` in the `./deployments` to demonstrate two `pinger` services that ping each other
+
+## Deliverable
+
+Running `docker-compose up -f ./deployments/docker-compose.yml` should result in a network of Docker containers that are pinging each other. Exposing the logs should reveal them pinging each other at their different ports.
+
+You can test if this works by running:
+
+- `make testenv`
+
+
+- - -
+
+
+# Documentation
+
+> **REMINDER**: this will form 10% of your assessment
+
+## Context
+
+Now that you've added some DevOps tooling to this project, it's time to document it!
+
+## Task
+
+Write a README.md in the `./docs` directory that contains instructions on how to operate this repository. The README should be as concise as possible while enabling anyone new to this project to get started as quickly as possible.
+
+## Deliverable
+
+README.md in the `./docs` directory.
+
+
+- - -
+
+
+# Versioning (Bonus)
+
+Note that this requires that the [Pipeline Section](#pipeline) is complete.
+
+> **REMINDER**: this provide an additional 20% to your assessment
 
 ## Context
 
