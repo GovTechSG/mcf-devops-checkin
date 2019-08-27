@@ -44,8 +44,8 @@ You will also need the following accounts:
 
 **There are 4 tasks** you need to complete. The section on [Versioning](#versioning-bonus) is a bonus section if you'd like to push yourself (: there is no time limit on this, feel free to modify your setup up till the face-to-face interview.
 
-| Task | Scoring |
-| --- | --- | --- |
+| Task | Weightage |
+| --- | --- |
 | [Containerisation](#containerisation) | 40% |
 | [Pipeline](#pipeline) | 30% |
 | [Environment](#environment) | 20% |
