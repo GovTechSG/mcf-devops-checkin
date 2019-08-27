@@ -167,7 +167,7 @@ README.md in the `./docs` directory.
 
 Note that this requires that the [Pipeline Section](#pipeline) is complete.
 
-> **REMINDER**: this provide an additional 20% to your assessment
+> **REMINDER**: this provides an additional 20% to your assessment
 
 ## Context
 
