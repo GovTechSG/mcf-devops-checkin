@@ -138,6 +138,6 @@ The following should also be exposed as GitLab job artifacts:
 
 # License
 
-Code is licensed under the [MIT license](./LICENSE-CODE).
+Code is licensed under the [MIT license](./LICENSE).
 
-Content is licensed under the [Creative Commons 4.0 (Attribution) license](./LICENSE-CONTENT).
+Content is licensed under the [Creative Commons 4.0 (Attribution) license](https://creativecommons.org/licenses/by-nc-sa/4.0/).
