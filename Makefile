@@ -12,7 +12,7 @@ test:
 
 testenv:
 	# do not change this
-	docker-compose up -f ./deployments/docker-compose.yml
+	docker-compose up -f ./deployments/docker-compose.yml -V
 
 docker_image:
 	# do not change this
@@ -29,3 +29,7 @@ docker_tar: docker_image
 docker_untar:
 	# do not change this
 	docker load -i ./build/pinger.tar
+
+verify_readme:
+	# do not change this
+	cat ./docs/README.md
