@@ -20,12 +20,14 @@ You will also need the following accounts:
 
 # Orientation & Instruction
 
-This repository contains a simple program named `pinger` with a basic `Makefile` that allows you to do pull in dependencies, builds, test runs, and run tests using the following respectively:
+This repository contains a simple program named `pinger` with a basic `Makefile` that allows you to:
 
-- `make dep`
-- `make build`
-- `make run`
-- `make test`
+- pull in dependencies - `make dep`
+- builds the binaries - `make build`
+- test runs - `make run`
+- run tests - `make test`
+
+You may modify the above recipes according to your needs/wants but avoid modifying those tagged with `# do not change this` as we will be using those to validate your work.
 
 Directory structure:
 
@@ -35,6 +37,7 @@ Directory structure:
 | `/build` | Contains packaging/bundling related files |
 | `/cmd` | Contains source code for CLI interfaces |
 | `/deployments` | Contains manifests for deployments |
+| `/docs` | Contains documentation |
 | `/vendor` | Contains dependencies |
 
 - - -
@@ -48,7 +51,9 @@ Directory structure:
 
 For the submission, send us the link to your repository in GitLab.
 
+
 - - -
+
 
 # Containerisation
 
@@ -71,7 +76,9 @@ You can test if this works by running:
 - `make docker_image`
 - `make docker_testrun`
 
+
 - - -
+
 
 # Environment
 
@@ -91,7 +98,9 @@ You can test if this works by running:
 
 - `make testenv`
 
+
 - - -
+
 
 # Documentation
 
@@ -107,11 +116,11 @@ Write a README.md in the `./docs` directory that contains instructions on how to
 
 README.md in the `./docs` directory.
 
+
 - - -
 
-# Pipeline (optional)
 
-> This section is optional (but a bonus) to complete. If it is left undone, we will cover this during the face-to-face technical assessment so do read up a little on GitLab pipelines and how they work regardless!
+# Pipeline
 
 ## Context
 
@@ -130,9 +139,42 @@ The following should also be exposed as GitLab job artifacts:
 1. The binary itself
 2. Docker image in `.tar` format (see `Makefile` recipe `docker_tar`)
 
-## Deliverbale
+## Deliverable
 
-`.gitlab-ci.yml` in the root of this directory that results in a successful build on your own repository.
+`.gitlab-ci.yml` in the root of this directory that results in a successful build on your own repository with the required artifacts available for download.
+
+Also add a section to your README.md in the [Documentation](#documentation) on configuring your pipeline.
+
+
+- - -
+
+
+# Bonus - Versioning
+
+> **NOTE**: This requires that the [Pipeline Section](#pipeline) is complete.
+
+## Context
+
+When referring to problems, we often use a version number. The (arguably) leading way to do this is via semver (eg. 1.15.2). Let's apply versioning to what we did!
+
+## Task
+
+Your pipeline probably has multiple stages (regardless of in YAML structure/in logic), add additional scripting to bump the version of this repository using Git tags. The versioning strategy is up to you to decide.
+
+## Deliverable
+
+On the GitLab CI pipeline page, we can manually trigger a CI pipeline run. Assuming you are at version X, triggering a CI pipeline run should bump the version to version Y, where X comes before Y in any logical sequence.
+
+
+- - -
+
+
+# I'm Done
+
+Send the link to your GitLab repository to the person who requested you to engage in this check-in.
+
+If you're selected, you will be notified and requested to join us for a face-to-face interview session where we'll talk about what/why/how you've done and request you to make some changes in a live programming exercise.
+
 
 - - -
 

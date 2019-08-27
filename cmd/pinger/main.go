@@ -24,9 +24,9 @@ const ExitCodeInitFailed = 1
 const ExitCodeMainFailed = 2
 
 var config Config
-var errorLogger = log.New(os.Stdout, "error", log.LstdFlags)
-var serverLogger = log.New(os.Stdout, "server", log.LstdFlags)
-var serviceLogger = log.New(os.Stdout, "service", log.LstdFlags)
+var errorLogger = log.New(os.Stdout, "  error|", log.LstdFlags)
+var serverLogger = log.New(os.Stdout, " server|", log.LstdFlags)
+var serviceLogger = log.New(os.Stdout, "service|", log.LstdFlags)
 var readiness = map[string]bool{
 	"target_up": false,
 }
@@ -90,7 +90,7 @@ func main() {
 			handleError(err, errorLogger)
 			response, err := client.Do(req)
 			handleError(err, errorLogger)
-			serviceLogger.Printf("%s responded with '%s'\n", config.getTargetURL(), response.Status)
+			serviceLogger.Printf("> %s -> '%s'\n", config.getTargetURL(), response.Status)
 		// handle os termination
 		case sig := <-ossig:
 			serviceLogger.Printf("received termination signal '%v', shutting down server now\n", sig)
@@ -143,13 +143,16 @@ func handleError(err error, log *log.Logger) {
 	}
 }
 
+// requestLoggerMiddleware is a middleware that
 func requestLoggerMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		next.ServeHTTP(w, r)
-		serverLogger.Printf("%s %s %s\n", strings.ToUpper(r.Proto), r.Method, r.URL.Path)
+		serverLogger.Printf("< %s <- %s | %s %s %s \n", r.Host, r.RemoteAddr, strings.ToUpper(r.Proto), r.Method, r.URL.Path)
 	})
 }
 
+// Config provides an interface for the configuration we will be using
+// in this service
 type Config struct {
 	Interface   string        `json:"interface"`
 	PingTimeout time.Duration `json:"port"`
@@ -160,6 +163,8 @@ type Config struct {
 	TargetProto string        `json:"target_proto"`
 }
 
+// getTargetURL retrieves the exact URL which we can use to ping the
+// target server
 func (c *Config) getTargetURL() string {
 	return fmt.Sprintf("%s://%s:%v/%s", c.TargetProto, c.TargetHost, c.TargetPort, c.TargetPath)
 }
