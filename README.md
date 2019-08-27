@@ -149,7 +149,7 @@ You can test if this works by running:
 
 ## Context
 
-Now that you've added some DevOps tooling to this project, it's time to document it!
+Now that you've added some DevOps tooling to this project, it's time to document it together with the poorly documented code.
 
 ## Task
 
